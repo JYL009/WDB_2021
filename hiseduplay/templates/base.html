@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <!-- Bootstrap CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Stylish&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>2021 WDB 개인 프로젝트 과제</title>
+    </head>
+    <style>
+        .container-sj {
+            background-image: url('/static/img/sejong.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: local;
+            background-position: right bottom -300px;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            color: gray;
+        }
+        body {
+            background-image: url('/static/img/hangul.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: local;
+        }
+        * {
+            font-family: 'Stylish';
+        }
+        .footer {
+            clear: both;
+        }
+    </style>
+    <body>
+        <div class="container-sj" href="/">
+            <h1 class="pt-5 pb-5 col-12 text-center">
+                <a href="/">
+                    史교육놀이터
+                </a>
+            </h1>
+        </div>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <!-- <a class="navbar-brand" href="#">?</a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="/member/about/">
+                                    &nbsp;&nbsp; About</a
+                                >
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    &nbsp;&nbsp; 인물
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">선사 시대</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">고조선</a></li>
+                                    <li><a class="dropdown-item" href="#">초기 국가</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">삼국 시대</a></li>
+                                    <li><a class="dropdown-item" href="#">남북국 시대</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">고려</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">조선 전기</a></li>
+                                    <li><a class="dropdown-item" href="#">조선 후기</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">일제강점기</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">광복 이후 ~ 현대</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    &nbsp;&nbsp; 사건
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">선사 시대</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">고조선</a></li>
+                                    <li><a class="dropdown-item" href="#">초기 국가</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">삼국 시대</a></li>
+                                    <li><a class="dropdown-item" href="#">남북국 시대</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">고려</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">조선 전기</a></li>
+                                    <li><a class="dropdown-item" href="#">조선 후기</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">일제강점기</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">광복 이후 ~ 현대</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    &nbsp;&nbsp; 시기
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">선사 시대</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">고조선</a></li>
+                                    <li><a class="dropdown-item" href="#">초기 국가</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">삼국 시대</a></li>
+                                    <li><a class="dropdown-item" href="#">남북국 시대</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">고려</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">조선 전기</a></li>
+                                    <li><a class="dropdown-item" href="#">조선 후기</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">일제강점기</a></li>
+                                    <li><hr class="dropdown-divider"/></li>
+                                    <li><a class="dropdown-item" href="#">광복 이후 ~ 현대</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/merch/">&nbsp;&nbsp; Merch</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/merch/quiz/">&nbsp;&nbsp; Quiz</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/qna/list/">&nbsp;&nbsp; QnA</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex">
+                            <input
+                                class="form-control me-2"
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                            />
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                            {% if user_id %}
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    &nbsp;&nbsp; 내 정보
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">개인 정보 수정</a></li>
+                                    <li><a class="dropdown-item" href="#">포인트 보기</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="/member/logout">로그아웃</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <p class="pt-3">
+                                &nbsp;&nbsp; 반가워요 {{user_id}}님!! &nbsp;&nbsp;
+                            </p>
+                            {% else %}
+                            <p class="pt-3">
+                                &nbsp;&nbsp;
+                            </p>
+                            <button class="btn btn-outline-success" type="submit">
+                                <a href="/member/register/" class="link-success"> Join </a>
+                            </button>
+                            <p class="pt-3">
+                                &nbsp;&nbsp;
+                            </p>
+                            <button class="btn btn-outline-success" type="submit" onclick="increment()">
+                                <a href="/member/login/" class="link-success"> Login </a>
+                            </button>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        {% block contents %} {% endblock %}
+
+        <div class="container">
+            <div class="footer">
+                <hr class="mt-5" />
+                <p class="text-center">
+                    copyright@2021 reserved 이예원 (2019310485)
+                </p>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript; choose one of the two! -->
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    --></body>
+</html>

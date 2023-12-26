@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% block contents %}
+<style>
+    * {
+        font-family: 'Stylish';
+    }
+    .card {
+        float: left;
+        width: 40%;
+        margin: 10px 10px 0 0;
+    }
+</style>
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src="/static/img/seo.JPG" class="card-img-top" alt="이미지 준비중입니다." />
+        <div class="card-body">
+            <h5 class="card-title">서대문 형무소 역사관 관람권</h5>
+            <p class="card-text">
+                우리나라의 과거 일제강점기 시대의 어두운 면을 볼 수 있는 서대문 형무소 역사관을 관람하고 싶으면 여기서 관람권을 예약하세요.
+            </p>
+            {% if user_id %}
+            <div class="col">
+                <form method="GET" action="/merch/merch/">
+                    <input id="point" type="number" min="0" step="20" />
+                    <a href="https://sphh.sscmc.or.kr/reservation/reservation.php" class="btn btn-primary">홈페이지 바로 이동</a>
+                    <script>
+                        function increment() {
+                            document.getElementById('point').stepUp();
+                        }
+                    </script>
+                </form>
+            </div>
+            {% else %}
+            <a href="https://sphh.sscmc.or.kr/reservation/reservation.php" class="btn btn-secondary" style="pointer-events: none">홈페이지 바로 이동</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="/static/img/dokdo.jpg" class="card-img-top" alt="이미지 준비중입니다." />
+        <div class="card-body">
+            <h5 class="card-title">독도 노트</h5>
+            <p class="card-text">
+                자랑스러운 우리나라 땅인 독도가 그려진 노트입니다.
+            </p>
+            {% if user_id %}
+            <div class="col">
+                <form method="GET" action="/merch/merch/">
+                    <input id="point" type="number" min="0" step="20" />
+                    <a href="https://www.11st.co.kr/products/3501166602?NaPm=ct=kx7jsmwo|ci=a79c67094a8c6f884c6643c3cf03f0189a542198|tr=slsc|sn=17703|hk=38b5fdb52584478a34b830c540533bb52f4101a5&utm_term=&utm_campaign=%B3%D7%C0%CC%B9%F6pc_%B0%A1%B0%DD%BA%F1%B1%B3%B1%E2%BA%BB&utm_source=%B3%D7%C0%CC%B9%F6_PC_PCS&utm_medium=%B0%A1%B0%DD%BA%F1%B1%B3" class="btn btn-primary">구매하러 가기 (11번가)</a>
+                    <script>
+                        function increment() {
+                            document.getElementById('point').stepUp();
+                        }
+                    </script>
+                </form>
+            </div>
+            {% else %}
+            <a href="https://www.11st.co.kr/products/3501166602?NaPm=ct=kx7jsmwo|ci=a79c67094a8c6f884c6643c3cf03f0189a542198|tr=slsc|sn=17703|hk=38b5fdb52584478a34b830c540533bb52f4101a5&utm_term=&utm_campaign=%B3%D7%C0%CC%B9%F6pc_%B0%A1%B0%DD%BA%F1%B1%B3%B1%E2%BA%BB&utm_source=%B3%D7%C0%CC%B9%F6_PC_PCS&utm_medium=%B0%A1%B0%DD%BA%F1%B1%B3" class="btn btn-secondary" style="pointer-events: none">구매하러 가기 (11번가)</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="/static/img/korea.JPG" class="card-img-top" alt="이미지 준비중입니다." />
+        <div class="card-body">
+            <h5 class="card-title">독도 모자</h5>
+            <p class="card-text">
+                '독도는 한국땅'이라 적힌 모자이다. 군대 관련 용품을 파는 곳에서 파는 물품이라 군복이랑 가장 잘 어울릴 것 같지만 멋있어 보인다.
+            </p>
+            <a href="http://www.armyshop.co.kr/index.html?branduid=104297&ref=naver_open&NaPm=ct%3Dkx7kaapk%7Cci%3D4c0cfeb23f9f297fd1523faf448339d341720896%7Ctr%3Dsls%7Csn%3D52635%7Chk%3D3bdf3025a2b84018f21b5139c1afe30ca9bb1a36" class="btn btn-primary">구매하러 가기 (ARMY SHOP)</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

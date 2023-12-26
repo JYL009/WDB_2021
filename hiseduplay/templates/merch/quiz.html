@@ -1,0 +1,119 @@
+{% extends "base.html" %} {% block contents %}
+<style>
+    * {
+        font-family: 'Stylish';
+    }
+    .card {
+        float: left;
+        width: 40%;
+        margin: 10px 10px 0 0;
+    }
+</style>
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src="/static/img/bukbul.jpg" class="card-img-top" alt="..." />
+        <div class="card-body">
+            <h5 class="card-title">오늘의 역사 퀴즈</h5>
+            <hr />
+            <p class="card-text">
+                Q. '북벌'에 대한 설명으로 옳은 것은?<br />
+                1) 소현 세자가 적극적으로 준비하였다.<br />
+                2) 임진왜란을 일으킨 일본에 복수하는 것을 뜻한다.<br />
+                3) 청나라의 발달한 문물을 받아들이자는 주장이다.<br />
+                4) 병자호란을 일으킨 청나라에 복수하는 것을 뜻한다.
+            </p>
+            <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+            >
+                답 보기
+            </button>
+            <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">정답</h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            4번
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src="/static/img/sairm.JPG" class="card-img-top" alt="..." />
+        <div class="card-body">
+            <h5 class="card-title">어제의 역사 퀴즈</h5>
+            <hr />
+            <p class="card-text">
+                Q. 사림 세력이 16세기에 정권을 차지할 수 있었던 이유로 옳은 것은?<br />
+                1) 중종이 훈구 세력을 탄압했기 때문에<br />
+                2) 사림 세력이 사화를 일으켰기 떄문에<br />
+                3) 훈구 세력이 전쟁으로 모두 죽었기 때문에<br />
+                4) 사림 세력의 뿌리가 지방의 서원과 향약에 있기 때문에
+            </p>
+            <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+            >
+                답 보기
+            </button>
+            <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+            >
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">정답</h5>
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div class="modal-body">
+                            4번
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

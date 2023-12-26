@@ -1,0 +1,154 @@
+{% extends "base.html" %} {% block contents %}
+<style>
+    * {
+        font-family: 'Stylish';
+    }
+</style>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <h1>
+                글 상세보기
+            </h1>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="subject" class="form-label">글 제목</label>
+                <input
+                    type="text"
+                    class="form-control"
+                    name="subject"
+                    value="{{contents.subject}}"
+                    readonly
+                />
+            </div>
+            {% if user_id %}
+            <div class="mb-3">
+                <label for="memberID" class="form-label">작성자 아이디</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="memberID"
+                    value="{{memberID}}"
+                    aria-label="readonly input example"
+                    readonly
+                />
+            </div>
+            {% else %}
+            <div class="mb-3">
+                <label for="memberID" class="form-label">작성자 아이디</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="memberID"
+                    value="익명"
+                    aria-label="readonly input example"
+                    readonly
+                />
+            </div>
+            {% endif %}
+            <div class="mb-3">
+                <label for="content" class="form-label">글 내용</label>
+                <textarea class="form-control" name="content" rows="5" readonly>
+{{contents.content}}</textarea
+                >
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">작성날짜</label>
+                <input
+                    class="form-control"
+                    type="text"
+                    name="memberID"
+                    value="{{contents.create_dttm}}"
+                    aria-label="readonly input example"
+                    readonly
+                />
+            </div>
+            <form method="GET" action="/qna/list/">
+                <button type="submit" class="btn btn-primary mt-4">
+                    <!-- <a class="nav-link" href="/qna/list/" style="text-decoration:none ; color:white"> -->
+                    글목록으로 돌아가기
+                    <!-- </a> -->
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-12">
+            <hr />
+            <!-- 그냥 선 하나 넣어줌 -->
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <h4>
+                답글 달기
+            </h4>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <form method="POST" action="/qna/answer_write/{{contents.id}}">
+            {% csrf_token %}
+            <div class="row mt-2">
+                <div class="col-11">
+                    <textarea class="form-control" name="content" rows="3"></textarea>
+                </div>
+                {% if user_id %}
+                <div class="col">
+                    <input id="point" type="number" min="0" step="20" />
+                    <button type="submit" class="btn btn-primary mt-4" onclick="increment()">
+                        등록
+                    </button>
+                    <script>
+                        function increment() {
+                            document.getElementById('point').stepUp();
+                        }
+                    </script>
+                </div>
+                {% else %}
+                <div class="col">
+                    <button type="submit" class="btn btn-primary mt-4">
+                        등록
+                    </button>
+                </div>
+            </div>
+                {% endif %}
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12">
+            <h5>
+                등록된 답글
+            </h5>
+        </div>
+    </div>
+
+    {% if answer_list %} {% for a in answer_list %}
+    <div class="row mt-5 text-info">
+        <div class="col-2">
+            작성자: {{a.writerID}}
+        </div>
+        <div class="col-10">
+            작성일: {{a.create_dttm}}
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-11">
+            <textarea class="form-control" name="content" rows="3">{{a.content}}</textarea>
+        </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="row mt-2">
+        <div class="col-12 text-info">
+            등록된 답글이 없습니다.
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
