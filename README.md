@@ -7,7 +7,7 @@ I used Django, Python, HTML, and CSS to make the overall website.
 
 **Feel free to explore!**
 
-## 🔧 Tip & Guide
+## 🖥️ Description about the website
 
 * Command feature
 	* You can simply run your script using the shortcut icons on the top right.
