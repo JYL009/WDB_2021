@@ -52,7 +52,7 @@
             <div class="mb-3">
                 <label for="content" class="form-label">글 내용</label>
                 <textarea class="form-control" name="content" rows="5" readonly>
-{{contents.content}}</textarea
+{{contents.content_q}}</textarea
                 >
             </div>
             <div class="mb-3">
@@ -91,7 +91,7 @@
         </div>
     </div>
     <div class="row mt-2">
-        <form method="POST" action="/qna/answer_write/{{contents.id}}">
+        <form method="POST" action="{% url 'qna:answer_write' contents.id %}">
             {% csrf_token %}
             <div class="row mt-2">
                 <div class="col-11">
@@ -140,7 +140,7 @@
     </div>
     <div class="row mt-3">
         <div class="col-11">
-            <textarea class="form-control" name="content" rows="3">{{a.content}}</textarea>
+            <textarea class="form-control" name="content" rows="3">{{a.content_a}}</textarea>
         </div>
     </div>
     {% endfor %} {% else %}

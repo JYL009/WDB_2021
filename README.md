@@ -3,12 +3,35 @@
 Hiseduplay is a Django project for presenting Korean history content, quizzes,
 merchandise pages, and a Q&A board.
 
+## Project Highlights
+
+- Built as a personal college project to share Korean history content through a
+  small Django site.
+- Includes a home page, quiz page, merchandise page, member registration/login,
+  and Q&A board.
+- Uses a custom `Member` model backed by the legacy `MEMBER` table.
+- Current private-maintenance branch has been cleaned for safer local
+  development: secrets are environment-based, generated files are ignored, and
+  the app has focused regression tests.
+
 ## Tech Stack
 
 - Python 3.11
 - Django 3.2
 - SQLite for local development
 - MySQL for deployment, if configured
+
+## Recent Maintenance Improvements
+
+- Removed committed secrets, local databases, bytecode, and obsolete project
+  scaffolding.
+- Added reproducible install/run instructions.
+- Added password hashing for new registrations and automatic upgrade for legacy
+  plain-text passwords when users log in.
+- Fixed Q&A question/answer creation bugs and replaced broad exception handling
+  with explicit object lookups and redirects.
+- Added focused tests for authentication, Q&A behavior, and merch/quiz page
+  rendering.
 
 ## Project Layout
 
@@ -108,4 +131,5 @@ After installing dependencies:
 Set-Location hiseduplay
 python manage.py check
 python manage.py migrate
+python manage.py test member qna merch
 ```

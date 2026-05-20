@@ -28,7 +28,7 @@
                     {% for q in question_list %}
                 <tr>
                     <th scope="row">{{q.id}}</th>
-                    <td><a href = "/qna/detail/{{q.id}}" style = "text-decoration:none ; color:black">{{q.subject}}</a></td>
+                    <td><a href="{% url 'qna:detail' q.id %}" style="text-decoration:none ; color:black">{{q.subject}}</a></td>
                     <td>{{q.memberID}}</td>
                     <td>{{q.create_dttm}}</td>
                 </tr>

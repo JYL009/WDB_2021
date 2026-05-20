@@ -1,10 +1,17 @@
-from django.shortcuts import render, redirect
-from .models import Merch
+from django.shortcuts import render
 
-# Create your views here.
 
 def merch(request):
-    return render(request, 'merch/merch.html')
+    return render(
+        request,
+        "merch/merch.html",
+        {"user_id": request.session.get("user")},
+    )
+
 
 def quiz(request):
-    return render(request, 'merch/quiz.html')
+    return render(
+        request,
+        "merch/quiz.html",
+        {"user_id": request.session.get("user")},
+    )
