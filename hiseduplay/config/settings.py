@@ -13,9 +13,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / ".env")
+load_dotenv(BASE_DIR / ".env.local", override=True)
 
 
 def get_env(name):
@@ -103,11 +107,17 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DB_ENGINE = os.environ.get("DJANGO_DB_ENGINE", "django.db.backends.sqlite3")
+DB_NAME = os.environ.get("DJANGO_DB_NAME", "db.sqlite3")
+
+if DB_ENGINE == "django.db.backends.sqlite3":
+    db_path = Path(DB_NAME)
+    if not db_path.is_absolute():
+        DB_NAME = str(BASE_DIR / db_path)
 
 DATABASES = {
     "default": {
         "ENGINE": DB_ENGINE,
-        "NAME": os.environ.get("DJANGO_DB_NAME", str(BASE_DIR / "db.sqlite3")),
+        "NAME": DB_NAME,
     }
 }
 
