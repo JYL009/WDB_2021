@@ -12,25 +12,46 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import my_settings
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+def get_env(name):
+    value = os.environ.get(name)
+    if value is None or value == "":
+        raise ImproperlyConfigured(f"{name} environment variable is required.")
+    return value
+
+
+def get_bool_env(name, default=False):
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.lower() in ("1", "true", "yes", "on")
+
+
+def get_list_env(name, default=None):
+    value = os.environ.get(name)
+    if not value:
+        return default or []
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-*(lm$1wyr0v=pq8)uc7^h%@i@#jd^xbqonv4e&l1@ph*ym)x1c'
-SECRET_KEY = my_settings.SECRET_KEY
+# SECURITY WARNING: keep the secret key used in production secret.
+SECRET_KEY = get_env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_bool_env("DJANGO_DEBUG", default=False)
 
-ALLOWED_HOSTS = [
-    'hiseduplay.run.goorm.io'
-]
+ALLOWED_HOSTS = get_list_env(
+    "DJANGO_ALLOWED_HOSTS",
+    default=["hiseduplay.run.goorm.io"],
+)
 
 
 # Application definition
@@ -81,13 +102,24 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-DATABASES = my_settings.DATABASES
+DB_ENGINE = os.environ.get("DJANGO_DB_ENGINE", "django.db.backends.sqlite3")
+
+DATABASES = {
+    "default": {
+        "ENGINE": DB_ENGINE,
+        "NAME": os.environ.get("DJANGO_DB_NAME", str(BASE_DIR / "db.sqlite3")),
+    }
+}
+
+if DB_ENGINE != "django.db.backends.sqlite3":
+    DATABASES["default"].update(
+        {
+            "USER": get_env("DJANGO_DB_USER"),
+            "PASSWORD": get_env("DJANGO_DB_PASSWORD"),
+            "HOST": os.environ.get("DJANGO_DB_HOST", "localhost"),
+            "PORT": os.environ.get("DJANGO_DB_PORT", ""),
+        }
+    )
 
 
 # Password validation

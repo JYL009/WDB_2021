@@ -11,21 +11,43 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+def get_env(name):
+    value = os.environ.get(name)
+    if value is None or value == "":
+        raise ImproperlyConfigured(f"{name} environment variable is required.")
+    return value
+
+
+def get_bool_env(name, default=False):
+    value = os.environ.get(name)
+    if value is None:
+        return default
+    return value.lower() in ("1", "true", "yes", "on")
+
+
+def get_list_env(name, default=None):
+    value = os.environ.get(name)
+    if not value:
+        return default or []
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p5#h=)43mxf#!=&kl1xcez(a9gcy6edn2)rj5df(caq21@aw41'
+# SECURITY WARNING: keep the secret key used in production secret.
+SECRET_KEY = get_env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_bool_env("DJANGO_DEBUG", default=False)
 
-ALLOWED_HOSTS = [".run.goorm.io"]
+ALLOWED_HOSTS = get_list_env("DJANGO_ALLOWED_HOSTS", default=[".run.goorm.io"])
 
 
 # Application definition
