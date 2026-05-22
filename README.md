@@ -10,6 +10,8 @@ history major background with web development. The goal is to make Korean
 history content easier to browse through a small website with quiz, product,
 member, and Q&A features.
 
+Original project period: 2021.11.22 - 2021.12.15.
+
 ## Project Highlights
 
 - Built as a personal college project to share Korean history content through a
@@ -28,29 +30,29 @@ member, and Q&A features.
 The home page introduces the service, shows a daily history quiz preview, and
 links to history-related cards and news content.
 
-<img width="951" alt="Hiseduplay home page" src="https://github.com/JYL009/WDB_2021/assets/150312081/b495f477-e675-42f5-8597-cbde8df214a5">
+<img width="951" alt="Hiseduplay home page" src="docs/images/home.png">
 
 ### Merchandise
 
 The merchandise page displays history-related products. Purchase actions are
 intended to require login.
 
-<img width="1002" alt="Hiseduplay merchandise page" src="https://github.com/JYL009/WDB_2021/assets/150312081/513e2106-6c12-498a-8833-d7c98d4b190a">
+<img width="1002" alt="Hiseduplay merchandise page" src="docs/images/merchandise.png">
 
 ### Quiz
 
 The quiz page presents Korean history questions and answers.
 
-<img width="1011" alt="Hiseduplay quiz page" src="https://github.com/JYL009/WDB_2021/assets/150312081/1af7b7e3-a57e-483e-8b56-033f5a3814c6">
+<img width="1011" alt="Hiseduplay quiz page" src="docs/images/quiz.png">
 
 ### Q&A
 
 The Q&A feature lets users browse questions, write posts, open question detail
 pages, and add answers.
 
-<img width="969" alt="Hiseduplay Q&A list page" src="https://github.com/JYL009/WDB_2021/assets/150312081/0ee7cf9c-f621-41eb-94ef-551c3708912b">
+<img width="969" alt="Hiseduplay Q&A list page" src="docs/images/qna-list.png">
 
-<img width="969" alt="Hiseduplay Q&A write page" src="https://github.com/JYL009/WDB_2021/assets/150312081/877f5f68-93e9-4ea2-b388-aa94048fbbcf">
+<img width="969" alt="Hiseduplay Q&A write page" src="docs/images/qna-write.png">
 
 ### Member Flow
 
@@ -58,9 +60,9 @@ The project includes custom member login and registration pages. The maintained
 version hashes newly registered passwords and upgrades legacy plain-text
 passwords after successful login.
 
-<img width="1124" alt="Hiseduplay login page" src="https://github.com/JYL009/WDB_2021/assets/150312081/438e2398-989a-4243-a732-290dbeb6f384">
+<img width="1124" alt="Hiseduplay login page" src="docs/images/login.png">
 
-<img width="1024" alt="Hiseduplay sign-up page" src="https://github.com/JYL009/WDB_2021/assets/150312081/fb9e949b-cf96-4ff9-8fee-56cccffc23fb">
+<img width="1024" alt="Hiseduplay sign-up page" src="docs/images/register.png">
 
 ## Tech Stack
 
